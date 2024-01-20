@@ -33,7 +33,7 @@ class Mission:
         self.step = 0
         # Publisher
         self.local_pose_pub = rospy.Publisher('/mavros/setpoint_position/local', PoseStamped, queue_size=10)
-        self.velocity_pub = rospy.Publisher('/mavros/setpoint_velocity/cmd_vel_unstamped', Twist, queue_size=10)
+        #self.velocity_pub = rospy.Publisher('/mavros/setpoint_velocity/cmd_vel_unstamped', Twist, queue_size=10)
         self.waypoint_pub = rospy.Publisher('/offboard_example/waypoint', WayPoint, queue_size=10)
 
         # Subscriber
@@ -171,47 +171,6 @@ class Mission:
             rospy.loginfo_throttle(1, '%s Process <Distance: %.1f>'%(wp[0], d))
             return False
 
-    def calculate_velocity(self, wp):
-        velocity = Twist()
-
-        xy_position = np.array((self.current_local_position.x, self.current_local_position.y))
-        xy_target = np.array((wp.x, wp.y))
-
-        z_position = self.current_local_position.z
-        z_target = wp.z
-
-        # XY control
-        obstacle = np.array((self.obstacle.x, self.obstacle.y))
-        R  = self.obstacle.z
-        d1, d2 = (10.0, R + 20.0)
-        
-        XY_max_vel = 5.0
-        
-        k1 = XY_max_vel / d1
-        k2 = 2*XY_max_vel * (R**2) * R*d2/(d2 - R)
-        
-        distance_goal = np.linalg.norm((xy_target - xy_position))
-        distance_obstacle = np.linalg.norm((obstacle - xy_position))
-
-        # XY control, Attractive term
-        if distance_goal <= d1:
-            gradient = k1 * (xy_position - xy_target)
-        else:
-            gradient = k1*d1/distance_goal * (xy_position - xy_target)
-
-        # XY control, Repulsive term
-        if distance_obstacle <= d2:
-            gradient += k2*(1/d2 - 1/distance_obstacle)/(distance_obstacle**3)*(xy_position - obstacle)
-
-        velocity.linear.x = -gradient[0]
-        velocity.linear.y = -gradient[1]
-
-        # Z control
-        k3 = 2
-
-        velocity.linear.z = k3 * (z_target - z_position)
-
-        return velocity
 
     def process(self):
         process = {0:['Takeoff', self.wpTakeoff],
@@ -221,16 +180,8 @@ class Mission:
                    4:['Return', self.wpTakeoff],
                    5:['Land', self.local_home_position]}.get(self.step, 'END')
 
-        if (process[0] == 'Takeoff') or (process[0] == 'WP2') or (process[0] == 'WP3'):
+        if (process[0] == 'Takeoff') or(process[0] == 'WP1') or (process[0] == 'WP2') or (process[0] == 'WP3') or (process[0] == 'Return'):
             self.PubLocalPosition(process[1])
-        
-        elif (process[0] == 'WP1') or (process[0] == 'Return'):
-            if self.waypoint_reach_check(process, 10) is False:
-                velocity = self.calculate_velocity(process[1])
-                self.PublishVelocity(velocity)
-
-            else:
-                self.PubLocalPosition(process[1])
 
         elif (process[0] == 'Land'):
             self.setMode("AUTO.LAND")
