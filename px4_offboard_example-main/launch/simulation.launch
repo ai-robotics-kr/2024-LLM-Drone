@@ -1,0 +1,6 @@
+<launch>
+    <rosparam command="load" file="$(find offboard_example)/param/waypoint.yaml" />
+
+    <node name= "simulation_main" pkg="offboard_example" type="simulation_main.py" output="screen" />
+
+</launch>
