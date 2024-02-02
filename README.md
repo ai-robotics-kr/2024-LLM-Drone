@@ -1,6 +1,6 @@
 # 🖥 LLM으로 드론 제어
 
-저희 스터디는 AIxRobotics Korea에서 진행합니다.
+저희 스터디는 **AIxRobotics Korea**에서 진행합니다.
 **드론 제어**와 **Large Language Model**의 기초부터 학습을 병행하며
 드론 제어 데이터셋으로 학습된 생성모델의 input(자연어)와 output(드론 언어) 산출을 통해
 드론 시뮬레이터에 적용해서 드론의 움직임을 제어해보는 프로젝트입니다.
@@ -32,14 +32,14 @@
 ### 🔥 스터디원 🔥
 
 <table><tr>         <td align="center"><a href="https://github.com/ChanJoon"><img src="https://avatars.githubusercontent.com/u/86798188?v=4" width="100px;" alt=""/>         <br /><sub><b>ChanJoon</b></td>
-         <td align="center"><a href="https://github.com/김미향"><img src="김미향" width="100px;" alt=""/>         <br /><sub><b>김미향</b></td>
-         <td align="center"><a href="https://github.com/김우성"><img src="김우성" width="100px;" alt=""/>         <br /><sub><b>김우성</b>
-          <td align="center"><a href="https://github.com/김현진"><img src="https://avatars.githubusercontent.com/u/김현진" width="100px;" alt=""/>         <br /><sub><b>김현진</b></td>
-         <td align="center"><a href="https://github.com/이규민"><img src="이규민" width="100px;" alt=""/>         <br /><sub><b>이규민</b></td>
+         <td align="center"><a href="https://github.com/cupfeedback"><img src="https://avatars.githubusercontent.com/u/84059031?v=4" width="100px;" alt=""/>         <br /><sub><b>김미향</b></td>
+         <td align="center"><a href="https://github.com/kws1611"><img src="https://avatars.githubusercontent.com/u/52367570?v=4" width="100px;" alt=""/>         <br /><sub><b>김우성</b>
+          <td align="center"><a href="https://github.com/kimhj5379"><img src="https://avatars.githubusercontent.com/u/149176171?v=4" width="100px;" alt=""/>         <br /><sub><b>김현진</b></td>
+         <td align="center"><a href="https://github.com/minbre"><img src="https://avatars.githubusercontent.com/u/139097363?v=4" width="100px;" alt=""/>         <br /><sub><b>이규민</b></td>
          <td align="center"><a href="https://github.com/movie5"><img src="https://avatars.githubusercontent.com/u/43196430?v=4" width="100px;" alt=""/>         <br /><sub><b>오영화</b>
-          <td align="center"><a href="https://github.com/전승진"><img src="https://avatars.githubusercontent.com/u/전승진" width="100px;" alt=""/>         <br /><sub><b>전승진</b></td>
-         <td align="center"><a href="https://github.com/정소라"><img src="정소라" width="100px;" alt=""/>         <br /><sub><b>정소라</b></td>
-         <td align="center"><a href="https://github.com/하윤우"><img src="https://avatars.githubusercontent.com/u/하윤우" width="100px;" alt=""/>         <br /><sub><b>하윤우</b></td></table>
+          <td align="center"><a href="https://github.com/ylab604"><img src="https://avatars.githubusercontent.com/u/99255566?v=4" width="100px;" alt=""/>         <br /><sub><b>전승진</b></td>
+         <td align="center"><a href="https://github.com/SoraJung"><img src="https://avatars.githubusercontent.com/u/43669194?v=4" width="100px;" alt=""/>         <br /><sub><b>정소라</b></td>
+         <td align="center"><a href="https://github.com/YoonwooHa"><img src="https://avatars.githubusercontent.com/u/109909361?v=4" width="100px;" alt=""/>         <br /><sub><b>하윤우</b></td></table>
 
 ## 📢 스터디 규칙
 
