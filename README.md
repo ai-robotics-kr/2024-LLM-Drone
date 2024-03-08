@@ -13,10 +13,17 @@ cd .. && catkin build chatgpt_gazebo
 ```
 Set up an API key by visiting https://platform.openai.com/account/api-keys. Copy the API key and paste it in the OPENAI_API_KEY field of config.json.
 
+### Add Gazebo Path
+
+```bash
+export GAZEBO_RESOURCE_PATH=${GAZEBO_RESOURCE_PATH}:~/catkin_ws/src/chatgpt_gazebo/worlds
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/catkin_ws/src/chatgpt_gazebo/models
+```
+
 ## How to Run
 ```bash
-# roslaunch chatgpt_gazebo env.launch
-# roslaunch chatgpt_gazebo chatgpt_gazebo.launch
+roslaunch chatgpt_gazebo gazebo.launch
+roslaunch chatgpt_gazebo run.launch
 ```
 
 ### TODO
