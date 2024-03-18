@@ -1,0 +1,7 @@
+<launch>
+    <rosparam command="load" file="$(find chatgpt_gazebo)/config/waypoints.yaml" />
+
+    <node name= "waypoint_follower" pkg="chatgpt_gazebo" type="waypoint_follower.py" output="screen" />
+    <node name= "visualizer" pkg="chatgpt_gazebo" type="visualizer.py" output="screen" />
+
+</launch>
